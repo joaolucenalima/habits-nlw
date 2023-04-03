@@ -1,7 +1,8 @@
-import * as Checkbox from "@radix-ui/react-checkbox";
-import dayjs from "dayjs";
-import { Check } from "phosphor-react";
 import { useEffect, useState } from "react";
+import { Check } from "phosphor-react";
+import dayjs from "dayjs";
+import * as Checkbox from "@radix-ui/react-checkbox";
+
 import { api } from "../lib/axios";
 
 type HabitListProps = {

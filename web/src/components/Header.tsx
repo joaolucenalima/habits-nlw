@@ -1,18 +1,27 @@
-import Logo from '../assets/logo.svg'
+import { useState } from 'react';
 import { Plus, X } from "phosphor-react";
 import * as Dialog from '@radix-ui/react-dialog';
+
+import Logo from '../assets/logo.svg'
 import { NewHabitForm } from './NewHabitForm';
 
 export function Header() {
 
+  const [open, setOpen] = useState(false)
+
+  function CloseModal() {
+    setOpen(false)
+  }
+
   return (
     <header className='flex justify-between items-center w-full max-w-4xl mx-auto'>
+
       <div>
         <img src={Logo} alt="Logo" />
         <h1 className='text-5xl font-bold pt-3'>Habits</h1>
       </div>
 
-      <Dialog.Root>
+      <Dialog.Root open={open} onOpenChange={setOpen}>
 
         <Dialog.Trigger
           type="button"
@@ -35,7 +44,7 @@ export function Header() {
               Criar Hábito
             </Dialog.Title>
 
-            <NewHabitForm />
+            <NewHabitForm closeModal={CloseModal} />
 
           </Dialog.Content>
         </Dialog.Portal>
